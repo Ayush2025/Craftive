@@ -5,7 +5,7 @@
 ;; Copyright (c) KALEIDOS INC
 
 (ns app.util.shell
-  "A penpot specific, modern api for executing external (shell)
+  "A craftive specific, modern api for executing external (shell)
   subprocesses"
   (:require
    [app.worker :as-alias wrk]
