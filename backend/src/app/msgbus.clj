@@ -216,7 +216,7 @@
   (rds/add-listener sconn (create-listener rcv-ch))
 
   (px/thread
-    {:name "penpot/msgbus/io-loop"
+    {:name "craftive/msgbus/io-loop"
      :virtual true}
     (try
       (loop []
@@ -292,4 +292,3 @@
       (throw cause))
     (catch Throwable cause
       (l/trace :hint "exception on unsubscribing" :topic topic :cause cause))))
-
