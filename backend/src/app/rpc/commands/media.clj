@@ -230,7 +230,7 @@
                                                  {:method :get :uri uri}
                                                  {:response-type :input-stream :sync? true})
           {:keys [size mtype]} (parse-and-validate response)
-          path    (tmp/tempfile :prefix "penpot.media.download.")
+          path    (tmp/tempfile :prefix "craftive.media.download.")
           written (io/write* path body :size size)]
 
       (when (not= written size)
