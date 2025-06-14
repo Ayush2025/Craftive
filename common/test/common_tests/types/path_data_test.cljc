@@ -116,7 +116,7 @@
 (t/deftest path-data-transit-roundtrip
   (let [pdata    (path/content sample-content)
         result1  (trans/encode-str pdata)
-        expected (str "[\"~#penpot/path-data\",\"~bAQAAAAAAAAAAAAA"
+        expected (str "[\"~#craftive/path-data\",\"~bAQAAAAAAAAAAAAA"
                       "AAAAAAAAAAAAAAPBDAMBRRAIAAAAAAAAAAAAAAAAAAA"
                       "AAAAAAAIDbQwCASEQDAAAAAAC4QwBAOEQAAJtDAEAqR"
                       "AAAhEMAgB5EBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
