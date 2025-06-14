@@ -460,7 +460,7 @@
          :max-items max-items)
 
   (let [tpoint    (dt/tpoint)
-        factory   (px/thread-factory :virtual false :prefix "penpot/file-process/")
+        factory   (px/thread-factory :virtual false :prefix "craftive/file-process/")
         executor  (px/cached-executor :factory factory)
         sjobs     (ps/create :permits max-jobs)
 
