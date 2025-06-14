@@ -41,7 +41,7 @@
 
 (defn exec
   "Entry point with external tools integrations that uses PREPL
-  interface for interacting with running penpot backend."
+  interface for interacting with running craftive backend."
   [data]
   (-> {::cmd (get data :cmd)}
       (merge (:params data))
