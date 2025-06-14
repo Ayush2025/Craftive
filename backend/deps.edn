@@ -2,7 +2,7 @@
  {"sonatype" {:url "https://oss.sonatype.org/content/repositories/snapshots/"}}
 
  :deps
- {penpot/common {:local/root "../common"}
+ {craftive/common {:local/root "../common"}
   org.clojure/clojure {:mvn/version "1.12.1"}
   org.clojure/tools.namespace {:mvn/version "1.5.0"}
 
@@ -53,9 +53,9 @@
 
   org.jsoup/jsoup {:mvn/version "1.20.1"}
   org.im4java/im4java
-  {:git/tag "1.4.0-penpot-2"
+  {:git/tag "1.4.0-craftive-2"
    :git/sha "e2b3e16"
-   :git/url "https://github.com/penpot/im4java"}
+   :git/url "https://github.com/craftive/im4java"}
 
   org.lz4/lz4-java {:mvn/version "1.8.0"}
 
