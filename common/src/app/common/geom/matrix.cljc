@@ -439,7 +439,7 @@
 
 #?(:clj
    (fres/add-handlers!
-    {:name "penpot/matrix"
+    {:name "craftive/matrix"
      :class Matrix
      :wfn (fn [n w o]
             (fres/write-tag! w n 1)
