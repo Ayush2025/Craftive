@@ -33,7 +33,7 @@
 
 (defmethod ig/init-key ::wrk/executor
   [_ _]
-  (let [factory  (px/thread-factory :prefix "penpot/default/")
+  (let [factory  (px/thread-factory :prefix "craftive/default/")
         executor (px/cached-executor :factory factory :keepalive 60000)]
     (l/inf :hint "executor started")
     executor))
@@ -85,7 +85,7 @@
               completed-inc))]
 
     (px/thread
-      {:name "penpot/executors-monitor" :virtual true}
+      {:name "craftive/executors-monitor" :virtual true}
       (l/inf :hint "monitor started" :name name)
       (try
         (loop [completed 0]
