@@ -284,7 +284,7 @@
       (ex/raise :type :validation
                 :code :missing-arguments))
 
-    (let [path (tmp/tempfile :prefix "penpot.export." :min-age "30m")]
+    (let [path (tmp/tempfile :prefix "craftive.export." :min-age "30m")]
       (with-open [output (io/output-stream path)]
         (-> cfg
             (assoc ::bfc/ids file-ids)
@@ -308,7 +308,7 @@
         {::yres/status  200
          ::yres/body    (io/input-stream path)
          ::yres/headers {"content-type" "application/octet-stream"
-                         "content-disposition" (str "attachmen; filename=" (first file-ids) ".penpot")}}))))
+                         "content-disposition" (str "attachmen; filename=" (first file-ids) ".craftive")}}))))
 
 
 (defn import-handler
