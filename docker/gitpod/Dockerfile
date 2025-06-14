@@ -29,9 +29,9 @@ ENV NODE_VERSION=v16.17.0 \
     LC_ALL=en_US.UTF-8
 
 RUN set -ex; \
-    useradd -m -g users -s /bin/bash penpot; \
-    passwd penpot -d; \
-    echo "penpot ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+    useradd -m -g users -s /bin/bash craftive; \
+    passwd craftive -d; \
+    echo "craftive ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 RUN set -ex; \
     apt-get -qq update; \
@@ -107,16 +107,16 @@ USER gitpod
 
 ENV PATH="/usr/lib/jvm/openjdk16/bin:/usr/local/nodejs/bin:$PATH" \
     JAVA_HOME=/usr/lib/jvm/openjdk16 \
-    PENPOT_SMTP_ENABLED=true \
-    PENPOT_SMTP_HOST=localhost \
-    PENPOT_SMTP_PORT=1025 \
-    PENPOT_SMTP_USER= \
-    PENPOT_SMTP_PASSWORD= \
-    PENPOT_SMTP_SSL=false \
-    PENPOT_SMTP_TLS=false \
-    PENPOT_SMTP_DEFAULT_REPLY_TO=no-reply@example.com \
-    PENPOT_SMTP_DEFAULT_FROM=no-reply@example.com \
-    PENPOT_DATABASE_URI="postgresql://localhost/penpot" \
-    PENPOT_REDIS_URI="redis://localhost/0"
+    CRAFTIVE_SMTP_ENABLED=true \
+    CRAFTIVE_SMTP_HOST=localhost \
+    CRAFTIVE_SMTP_PORT=1025 \
+    CRAFTIVE_SMTP_USER= \
+    CRAFTIVE_SMTP_PASSWORD= \
+    CRAFTIVE_SMTP_SSL=false \
+    CRAFTIVE_SMTP_TLS=false \
+    CRAFTIVE_SMTP_DEFAULT_REPLY_TO=no-reply@example.com \
+    CRAFTIVE_SMTP_DEFAULT_FROM=no-reply@example.com \
+    CRAFTIVE_DATABASE_URI="postgresql://localhost/craftive" \
+    CRAFTIVE_REDIS_URI="redis://localhost/0"
 
 # TODO Retrieve OpenLDAP from rroemhild/docker-test-openldap
