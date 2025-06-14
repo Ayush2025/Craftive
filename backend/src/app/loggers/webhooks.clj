@@ -154,7 +154,7 @@
 
         (let [req {:uri (:uri whook)
                    :headers {"content-type" (:mtype whook)
-                             "user-agent" (str/ffmt "penpot/%" (:main cf/version))}
+                             "user-agent" (str/ffmt "craftive/%" (:main cf/version))}
                    :timeout (dt/duration "4s")
                    :method :post
                    :body body}]
