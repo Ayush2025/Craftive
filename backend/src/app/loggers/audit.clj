@@ -33,16 +33,16 @@
 
 (defn extract-utm-params
   "Extracts additional data from params and namespace them under
-  `penpot` ns."
+  `craftive` ns."
   [params]
   (letfn [(process-param [params k v]
             (let [sk (d/name k)]
               (cond-> params
                 (str/starts-with? sk "utm_")
-                (assoc (->> sk str/kebab (keyword "penpot")) v)
+                (assoc (->> sk str/kebab (keyword "craftive")) v)
 
                 (str/starts-with? sk "mtm_")
-                (assoc (->> sk str/kebab (keyword "penpot")) v))))]
+                (assoc (->> sk str/kebab (keyword "craftive")) v))))]
     (reduce-kv process-param {} params)))
 
 (def profile-props
