@@ -136,7 +136,7 @@
         rows (db/exec! conn [sql])]
     (->> rows
          (map (fn [{:keys [backend total]}]
-                (let [backend (or backend "penpot")]
+                (let [backend (or backend "craftive")]
                   [(keyword (str "auth-backend-" backend))
                    total])))
          (into {}))))
@@ -243,7 +243,7 @@
         ;; explicitly checked the newsletter subscription on the
         ;; onboarding dialog or the profile section, then proceed to
         ;; send a limited telemetry data, that consists in the list of
-        ;; subscribed emails and the running penpot version.
+        ;; subscribed emails and the running craftive version.
         (or (seq (:newsletter-updates subs))
             (seq (:newsletter-news subs)))
         (do
