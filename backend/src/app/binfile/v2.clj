@@ -40,7 +40,7 @@
 
 (defn- create-database
   ([cfg]
-   (let [path (tmp/tempfile :prefix "penpot.binfile." :suffix ".sqlite")]
+   (let [path (tmp/tempfile :prefix "craftive.binfile." :suffix ".sqlite")]
      (create-database cfg path)))
   ([cfg path]
    (let [db (DriverManager/getConnection (str "jdbc:sqlite:" path))]
