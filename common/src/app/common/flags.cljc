@@ -39,10 +39,10 @@
 (def email
   "Flags related to email features"
   #{;; Uses the domains in whitelist as the only allowed domains to register in the application.
-    ;; Used with PENPOT_REGISTRATION_DOMAIN_WHITELIST
+    ;; Used with CRAFTIVE_REGISTRATION_DOMAIN_WHITELIST
     :email-whitelist
     ;; Prevents the domains in blacklist to register in the application.
-    ;; Used with PENPOT_REGISTRATION_DOMAIN_BLACKLIST
+    ;; Used with CRAFTIVE_REGISTRATION_DOMAIN_BLACKLIST
     :email-blacklist
     ;; Skips the email verification process. Not recommended for production environments.
     :email-verification
@@ -69,9 +69,9 @@
     :component-thumbnails
     ;; enables the default cors configuration that allows all domains (currently this configuration is only used for development).
     :cors
-    ;; Enables the templates dialog on Penpot dashboard.
+    ;; Enables the templates dialog on Craftive dashboard.
     :dashboard-templates-section
-    ;; disabled by default. When enabled, Penpot create demo users with a 7 days expiration.
+    ;; disabled by default. When enabled, Craftive create demo users with a 7 days expiration.
     :demo-users
     ;; disabled by default. When enabled, it displays a warning that this is a test instance and data will be deleted periodically.
     :demo-warning
@@ -108,7 +108,7 @@
     :rpc-rlimit
     ;; Soft rate limit.
     :soft-rpc-rlimit
-    ;; Disable it if you want to serve Penpot under a different domain than `http://localhost` without HTTPS.
+    ;; Disable it if you want to serve Craftive under a different domain than `http://localhost` without HTTPS.
     :secure-session-cookies
     ;; If `cors` enabled, this is ignored.
     :strict-session-cookies
