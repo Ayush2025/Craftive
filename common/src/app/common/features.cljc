@@ -13,7 +13,7 @@
    [clojure.set :as set]
    [cuerdas.core :as str]))
 
-;; The default behavior when a user interacts with penpot and runtime
+;; The default behavior when a user interacts with craftive and runtime
 ;; and global features:
 ;;
 ;; - If user enables on runtime a frontend-only feature, this feature
@@ -202,7 +202,7 @@
 (defn check-file-features!
   "Function used for check feature compability between currently
   enabled features set on backend with the provided featured set by
-  the penpot file"
+  the craftive file"
   [enabled-features file-features]
   (let [file-features (into #{} xf-remove-ephimeral file-features)
         not-supported (-> enabled-features
