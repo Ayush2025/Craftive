@@ -195,7 +195,7 @@
   (subs text 0 (min 280 (count text))))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;; DraftJS <-> Penpot Conversion
+;; DraftJS <-> Craftive Conversion
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 (defn encode-style-value
@@ -210,7 +210,7 @@
   [key val]
   (let [k (d/name key)
         v (encode-style-value val)]
-    (str "PENPOT$$$" k "$$$" v)))
+    (str "CRAFTIVE$$$" k "$$$" v)))
 
 (defn decode-style
   [style]
@@ -228,9 +228,9 @@
   [styles]
   (persistent!
    (reduce (fn [result style]
-             (if (str/starts-with? style "PENPOT")
-               (if (= style "PENPOT_SELECTION")
-                 (assoc! result :penpot-selection true)
+             (if (str/starts-with? style "CRAFTIVE")
+               (if (= style "CRAFTIVE_SELECTION")
+                 (assoc! result :craftive-selection true)
                  (let [[_ k v] (str/split style "$$$" 3)]
                    (assoc! result (keyword k) (decode-style-value v))))
                result))
@@ -242,7 +242,7 @@
   key/val pair of data."
   [styles]
   (->> styles
-       (filter #(str/starts-with? (get % :style) "PENPOT$$$"))
+       (filter #(str/starts-with? (get % :style) "CRAFTIVE$$$"))
        (map (fn [item]
               (let [[_ k v] (-> (get item :style)
                                 (str/split "$$$" 3))]
