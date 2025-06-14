@@ -6,7 +6,7 @@
 
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn"}))
-(def jar-file "target/penpot.jar")
+(def jar-file "target/craftive.jar")
 
 (defn clean [_]
   (b/delete {:path "target"}))
