@@ -32,7 +32,7 @@
         first
         :fill-color)))
 
-;; Related .penpot file: common/test/cases/chained-components-changes-propagation.penpot
+;; Related .craftive file: common/test/cases/chained-components-changes-propagation.craftive
 (t/deftest test-propagation-with-anidated-components
   (letfn [(setup []
             (-> (thf/sample-file :file1)
