@@ -6,7 +6,7 @@
 
 (ns app.setup.templates
   "A service/module that is responsible for download, load & internally
-  expose a set of builtin penpot file templates."
+  expose a set of builtin craftive file templates."
   (:require
    [app.common.data :as d]
    [app.common.data.macros :as dm]
