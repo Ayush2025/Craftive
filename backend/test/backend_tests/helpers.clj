@@ -60,12 +60,12 @@
 (def ^:dynamic *pool* nil)
 
 (def default
-  {:database-uri "postgresql://postgres/penpot_test"
+  {:database-uri "postgresql://postgres/craftive_test"
    :redis-uri "redis://redis/1"
    :auto-file-snapshot-every 1})
 
 (def config
-  (cf/read-config :prefix "penpot-test"
+  (cf/read-config :prefix "craftive-test"
                   :default (merge cf/default default)))
 
 (def default-flags
@@ -91,13 +91,13 @@
 
     (cf/validate! :exit-on-error? false)
 
-    (fs/create-dir "/tmp/penpot")
+    (fs/create-dir "/tmp/craftive")
 
     (let [templates [{:id "test"
                       :name "test"
                       :file-uri "test"
                       :thumbnail-uri "test"
-                      :path (-> "backend_tests/test_files/template.penpot" io/resource fs/path)}]
+                      :path (-> "backend_tests/test_files/template.craftive" io/resource fs/path)}]
           system (-> (merge main/system-config main/worker-config)
                      (assoc-in [:app.redis/redis :app.redis/uri] (:redis-uri config))
                      (assoc-in [::db/pool ::db/uri] (:database-uri config))
@@ -149,10 +149,10 @@
 
 (defn clean-storage
   [next]
-  (let [path (fs/path "/tmp/penpot")]
+  (let [path (fs/path "/tmp/craftive")]
     (when (fs/exists? path)
-      (fs/delete (fs/path "/tmp/penpot")))
-    (fs/create-dir "/tmp/penpot")
+      (fs/delete (fs/path "/tmp/craftive")))
+    (fs/create-dir "/tmp/craftive")
     (next)))
 
 (defn serial
@@ -479,7 +479,7 @@
 (defn tempfile
   [source]
   (let [rsc (io/resource source)
-        tmp (fs/create-tempfile :dir "/tmp/penpot" :prefix "test-")]
+        tmp (fs/create-tempfile :dir "/tmp/craftive" :prefix "test-")]
     (io/copy (io/file rsc)
              (io/file tmp))
     tmp))
