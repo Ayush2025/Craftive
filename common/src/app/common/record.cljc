@@ -5,7 +5,7 @@
 ;; Copyright (c) KALEIDOS INC
 
 (ns app.common.record
-  "A collection of helpers and macros for defien a penpot customized record types."
+  "A collection of helpers and macros for defien a craftive customized record types."
   (:refer-clojure :exclude [defrecord assoc! clone])
   #?(:cljs (:require-macros [app.common.record]))
   #?(:clj
