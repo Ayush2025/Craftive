@@ -1,5 +1,5 @@
 FROM ubuntu:24.04
-LABEL maintainer="Penpot <docker@penpot.app>"
+LABEL maintainer="Craftive <docker@craftive.app>"
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -36,9 +36,9 @@ RUN set -ex; \
 COPY files/apt.sources /etc/apt/sources.list.d/ubuntu.sources
 
 RUN set -ex; \
-    usermod -l penpot -d /home/penpot -G users -s /bin/bash ubuntu; \
-    passwd penpot -d; \
-    echo "penpot ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+    usermod -l craftive -d /home/craftive -G users -s /bin/bash ubuntu; \
+    passwd craftive -d; \
+    echo "craftive ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 RUN set -ex; \
     apt-get -qq update; \
@@ -286,7 +286,7 @@ RUN set -eux; \
     ./emsdk activate $EMSCRIPTEN_VERSION; \
     rustup target add wasm32-unknown-emscripten; \
     cargo install cargo-watch; \
-    chown -R penpot:users $CARGO_HOME;
+    chown -R craftive:users $CARGO_HOME;
 
 COPY files/nginx.conf /etc/nginx/nginx.conf
 COPY files/nginx-mime.types /etc/nginx/mime.types
