@@ -248,7 +248,7 @@
       pmap)))
 
 (fres/add-handlers!
- {:name "penpot/pointer-map/v1"
+ {:name "craftive/pointer-map/v1"
   :class PointerMap
   :wfn (fn [n w o]
          (fres/write-tag! w n 3)
@@ -272,9 +272,7 @@
                      (PersistentHashMap/create (seq kvs))))))})
 
 (t/add-handlers!
- {:id "penpot/pointer"
+ {:id "craftive/pointer"
   :class PointerMap
   :wfn (fn [val]
          [(get-id val) (meta val)])})
-
-
