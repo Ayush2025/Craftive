@@ -1,3 +1,3 @@
-CREATE DATABASE penpot;
-CREATE USER penpot PASSWORD 'penpot';
-ALTER ROLE penpot SUPERUSER;
+CREATE DATABASE craftive;
+CREATE USER craftive PASSWORD 'craftive';
+ALTER ROLE craftive SUPERUSER;
