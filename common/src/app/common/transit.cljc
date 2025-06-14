@@ -146,7 +146,7 @@
                     (.fromMillis ^js lxn/DateTime ms))))
   :wfn (comp str inst-ms)}
 
- {:id "penpot/pointer"
+ {:id "craftive/pointer"
   :class Pointer
   :rfn (fn [[id meta]]
          (Pointer. id meta))}
