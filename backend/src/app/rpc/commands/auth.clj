@@ -121,7 +121,7 @@
    [:invitation-token {:optional true} schema:token]])
 
 (sv/defmethod ::login-with-password
-  "Performs authentication using penpot password."
+  "Performs authentication using craftive password."
   {::rpc/auth false
    ::doc/added "1.15"
    ::climit/id :auth/global
@@ -240,7 +240,7 @@
         params  {:email email
                  :password (:password params)
                  :invitation-token (:invitation-token params)
-                 :backend "penpot"
+                 :backend "craftive"
                  :iss :prepared-register
                  :profile-id (:id profile)
                  :exp (dt/in-future {:days 7})
@@ -288,7 +288,7 @@
         locale    (when (and (string? locale) (not (str/blank? locale)))
                     locale)
 
-        backend   (:backend params "penpot")
+        backend   (:backend params "craftive")
         is-demo   (:is-demo params false)
         is-muted  (:is-muted params false)
         is-active (:is-active params false)
@@ -564,5 +564,3 @@
    ::sm/params schema:request-profile-recovery}
   [cfg params]
   (db/tx-run! cfg request-profile-recovery params))
-
-
