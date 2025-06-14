@@ -25,7 +25,7 @@
    java.io.OutputStream
    java.nio.file.Files))
 
-(def default-tmp-dir "/tmp/penpot")
+(def default-tmp-dir "/tmp/craftive")
 
 (declare ^:private remove-temp-file)
 (declare ^:private io-loop)
@@ -44,7 +44,7 @@
   [_ cfg]
   (fs/create-dir default-tmp-dir)
   (px/fn->thread (partial io-loop cfg)
-                 {:name "penpot/storage/tmp-cleaner" :virtual true}))
+                 {:name "craftive/storage/tmp-cleaner" :virtual true}))
 
 (defmethod ig/halt-key! ::cleaner
   [_ thread]
@@ -81,7 +81,7 @@
 
 (defn tempfile
   [& {:keys [suffix prefix min-age]
-      :or {prefix "penpot."
+      :or {prefix "craftive."
            suffix ".tmp"}}]
   (let [attrs (fs/make-permissions "rw-r--r--")
         path  (fs/join default-tmp-dir (str prefix (uuid/next) suffix))
