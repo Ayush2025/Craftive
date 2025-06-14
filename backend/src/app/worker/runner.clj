@@ -248,7 +248,7 @@
 (defn- start-thread!
   [{:keys [::rds/redis ::id ::queue ::wrk/tenant] :as cfg}]
   (px/thread
-    {:name (format "penpot/worker/runner:%s" id)}
+    {:name (format "craftive/worker/runner:%s" id)}
     (l/inf :hint "started" :id id :queue queue)
     (try
       (dm/with-open [rconn (rds/connect redis)]
