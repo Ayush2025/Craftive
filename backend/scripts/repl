@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
-export PENPOT_SECRET_KEY=super-secret-devenv-key
-export PENPOT_HOST=devenv
-export PENPOT_FLAGS="\
-       $PENPOT_FLAGS \
+export CRAFTIVE_SECRET_KEY=super-secret-devenv-key
+export CRAFTIVE_HOST=devenv
+export CRAFTIVE_FLAGS="\
+       $CRAFTIVE_FLAGS \
        enable-login-with-ldap \
        enable-login-with-password
        enable-login-with-oidc \
@@ -35,42 +35,42 @@ export PENPOT_FLAGS="\
        enable-subscriptions-old";
 
 # Default deletion delay for devenv
-export PENPOT_DELETION_DELAY="24h"
+export CRAFTIVE_DELETION_DELAY="24h"
 
 # Setup default upload media file size to 100MiB
-export PENPOT_MEDIA_MAX_FILE_SIZE=104857600
+export CRAFTIVE_MEDIA_MAX_FILE_SIZE=104857600
 
 # Setup default multipart upload size to 300MiB
-export PENPOT_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE=314572800
+export CRAFTIVE_HTTP_SERVER_MAX_MULTIPART_BODY_SIZE=314572800
 
-# export PENPOT_DATABASE_URI="postgresql://172.17.0.1:5432/penpot"
-# export PENPOT_DATABASE_USERNAME="penpot"
-# export PENPOT_DATABASE_PASSWORD="penpot"
-# export PENPOT_DATABASE_READONLY=true
+# export CRAFTIVE_DATABASE_URI="postgresql://172.17.0.1:5432/craftive"
+# export CRAFTIVE_DATABASE_USERNAME="craftive"
+# export CRAFTIVE_DATABASE_PASSWORD="craftive"
+# export CRAFTIVE_DATABASE_READONLY=true
 
-# export PENPOT_DATABASE_URI="postgresql://172.17.0.1:5432/penpot_pre"
-# export PENPOT_DATABASE_USERNAME="penpot_pre"
-# export PENPOT_DATABASE_PASSWORD="penpot_pre"
+# export CRAFTIVE_DATABASE_URI="postgresql://172.17.0.1:5432/craftive_pre"
+# export CRAFTIVE_DATABASE_USERNAME="craftive_pre"
+# export CRAFTIVE_DATABASE_PASSWORD="craftive_pre"
 
-# export PENPOT_LOGGERS_LOKI_URI="http://172.17.0.1:3100/loki/api/v1/push"
-# export PENPOT_AUDIT_LOG_ARCHIVE_URI="http://localhost:6070/api/audit"
+# export CRAFTIVE_LOGGERS_LOKI_URI="http://172.17.0.1:3100/loki/api/v1/push"
+# export CRAFTIVE_AUDIT_LOG_ARCHIVE_URI="http://localhost:6070/api/audit"
 
 # Initialize MINIO config
-mc alias set penpot-s3/ http://minio:9000 minioadmin minioadmin -q
-mc admin user add penpot-s3 penpot-devenv penpot-devenv -q
-mc admin user info penpot-s3 penpot-devenv |grep -F -q "readwrite"
+mc alias set craftive-s3/ http://minio:9000 minioadmin minioadmin -q
+mc admin user add craftive-s3 craftive-devenv craftive-devenv -q
+mc admin user info craftive-s3 craftive-devenv |grep -F -q "readwrite"
 if [ "$?" = "1" ]; then
-    mc admin policy attach penpot-s3 readwrite --user=penpot-devenv -q
+    mc admin policy attach craftive-s3 readwrite --user=craftive-devenv -q
 fi
-mc mb penpot-s3/penpot -p -q
+mc mb craftive-s3/craftive -p -q
 
-export AWS_ACCESS_KEY_ID=penpot-devenv
-export AWS_SECRET_ACCESS_KEY=penpot-devenv
+export AWS_ACCESS_KEY_ID=craftive-devenv
+export AWS_SECRET_ACCESS_KEY=craftive-devenv
 
-export PENPOT_OBJECTS_STORAGE_BACKEND=s3
-export PENPOT_OBJECTS_STORAGE_S3_ENDPOINT=http://minio:9000
-export PENPOT_OBJECTS_STORAGE_S3_BUCKET=penpot
-export PENPOT_OBJECTS_STORAGE_FS_DIRECTORY="assets"
+export CRAFTIVE_OBJECTS_STORAGE_BACKEND=s3
+export CRAFTIVE_OBJECTS_STORAGE_S3_ENDPOINT=http://minio:9000
+export CRAFTIVE_OBJECTS_STORAGE_S3_BUCKET=craftive
+export CRAFTIVE_OBJECTS_STORAGE_FS_DIRECTORY="assets"
 
 export JAVA_OPTS="\
        -Djava.util.logging.manager=org.apache.logging.log4j.jul.LogManager \
