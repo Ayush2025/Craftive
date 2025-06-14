@@ -71,7 +71,7 @@
   (validator file)
   file)
 
-;; Related .penpot file: common/test/cases/copying-and-duplicating.penpot
+;; Related .craftive file: common/test/cases/copying-and-duplicating.craftive
 (t/deftest main-and-first-level-copy
   (-> (setup)
       ;; For each main and first level copy:
