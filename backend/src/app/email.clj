@@ -85,7 +85,7 @@
 
 (defn- assign-extra-headers
   [^MimeMessage mmsg {:keys [headers extra-data] :as params}]
-  (let [headers (assoc headers "X-Penpot-Data" extra-data)]
+  (let [headers (assoc headers "X-Craftive-Data" extra-data)]
     (reduce-kv (fn [^MimeMessage mmsg k v]
                  (doto mmsg
                    (.addHeader (name k) (str v))))
@@ -424,16 +424,16 @@
    :id ::request-file-access
    :schema schema:request-file-access))
 
-(def request-file-access-yourpenpot
-  "File access on Your Penpot request email."
+(def request-file-access-yourcraftive
+  "File access on Your Craftive request email."
   (template-factory
-   :id ::request-file-access-yourpenpot
+   :id ::request-file-access-yourcraftive
    :schema schema:request-file-access))
 
-(def request-file-access-yourpenpot-view
-  "File access on Your Penpot view mode request email."
+(def request-file-access-yourcraftive-view
+  "File access on Your Craftive view mode request email."
   (template-factory
-   :id ::request-file-access-yourpenpot-view
+   :id ::request-file-access-yourcraftive-view
    :schema schema:request-file-access))
 
 (def ^:private schema:request-team-access
