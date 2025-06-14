@@ -396,7 +396,7 @@
   (instance? Fills o))
 
 (t/add-handlers!
- {:id "penpot/fills"
+ {:id "craftive/fills"
   :class Fills
   :wfn (fn [^Fills fills]
          (vec fills))
