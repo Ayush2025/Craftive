@@ -81,7 +81,7 @@
   [_ cfg]
   (when-let [uri (cf/get :error-report-webhook)]
     (px/thread
-      {:name "penpot/mattermost-reporter"
+      {:name "craftive/mattermost-reporter"
        :virtual true}
       (l/info :hint "initializing error reporter" :uri uri)
       (let [input (sp/chan :buf (sp/sliding-buffer 128)
