@@ -19,7 +19,7 @@
 
 (t/use-fixtures :each thi/test-fixture)
 
-;; Related .penpot file: common/test/cases/swap-and-reset.penpot
+;; Related .craftive file: common/test/cases/swap-and-reset.craftive
 (t/deftest test-swap-and-reset-override
   (letfn [(setup []
             (-> (thf/sample-file :file1)
