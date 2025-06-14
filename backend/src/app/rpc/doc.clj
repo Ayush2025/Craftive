@@ -164,7 +164,7 @@
     {:openapi "3.0.0"
      :info {:version (:main cf/version)}
      :servers [{:url (str/ffmt "%/api/rpc" (cf/get :public-uri))
-                ;; :description "penpot backend"
+                ;; :description "craftive backend"
                 }]
      :security
      {:api_key []}
