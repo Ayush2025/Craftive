@@ -104,7 +104,7 @@
                        :xf  (filter error-record?))]
     (add-watch l/log-record ::reporter #(sp/put! input %4))
 
-    (px/thread {:name "penpot/database-reporter"}
+    (px/thread {:name "craftive/database-reporter"}
       (l/info :hint "initializing database error persistence")
       (try
         (loop []
