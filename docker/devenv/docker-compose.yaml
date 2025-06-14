@@ -14,10 +14,10 @@ volumes:
 services:
   main:
     privileged: true
-    image: "penpotapp/devenv:latest"
+    image: "craftiveapp/devenv:latest"
     build:
       context: "."
-    container_name: "penpot-devenv-main"
+    container_name: "craftive-devenv-main"
     stop_signal: SIGINT
 
     depends_on:
@@ -26,8 +26,8 @@ services:
       # - keycloak
 
     volumes:
-      - "user_data:/home/penpot/"
-      - "${PWD}:/home/penpot/penpot:z"
+      - "user_data:/home/craftive/"
+      - "${PWD}:/home/craftive/craftive:z"
 
     ports:
       - 3447:3447
@@ -44,28 +44,28 @@ services:
     environment:
       - EXTERNAL_UID=${CURRENT_USER_ID}
       # SMTP setup
-      - PENPOT_SMTP_ENABLED=true
-      - PENPOT_SMTP_DEFAULT_FROM=no-reply@example.com
-      - PENPOT_SMTP_DEFAULT_REPLY_TO=no-reply@example.com
-      - PENPOT_SMTP_HOST=mailer
-      - PENPOT_SMTP_PORT=1025
-      - PENPOT_SMTP_USERNAME=
-      - PENPOT_SMTP_PASSWORD=
-      - PENPOT_SMTP_SSL=false
-      - PENPOT_SMTP_TLS=false
+      - CRAFTIVE_SMTP_ENABLED=true
+      - CRAFTIVE_SMTP_DEFAULT_FROM=no-reply@example.com
+      - CRAFTIVE_SMTP_DEFAULT_REPLY_TO=no-reply@example.com
+      - CRAFTIVE_SMTP_HOST=mailer
+      - CRAFTIVE_SMTP_PORT=1025
+      - CRAFTIVE_SMTP_USERNAME=
+      - CRAFTIVE_SMTP_PASSWORD=
+      - CRAFTIVE_SMTP_SSL=false
+      - CRAFTIVE_SMTP_TLS=false
 
       # LDAP setup
-      - PENPOT_LDAP_HOST=ldap
-      - PENPOT_LDAP_PORT=10389
-      - PENPOT_LDAP_SSL=false
-      - PENPOT_LDAP_STARTTLS=false
-      - PENPOT_LDAP_BASE_DN=ou=people,dc=planetexpress,dc=com
-      - PENPOT_LDAP_BIND_DN=cn=admin,dc=planetexpress,dc=com
-      - PENPOT_LDAP_BIND_PASSWORD=GoodNewsEveryone
-      - PENPOT_LDAP_ATTRS_USERNAME=uid
-      - PENPOT_LDAP_ATTRS_EMAIL=mail
-      - PENPOT_LDAP_ATTRS_FULLNAME=cn
-      - PENPOT_LDAP_ATTRS_PHOTO=jpegPhoto
+      - CRAFTIVE_LDAP_HOST=ldap
+      - CRAFTIVE_LDAP_PORT=10389
+      - CRAFTIVE_LDAP_SSL=false
+      - CRAFTIVE_LDAP_STARTTLS=false
+      - CRAFTIVE_LDAP_BASE_DN=ou=people,dc=planetexpress,dc=com
+      - CRAFTIVE_LDAP_BIND_DN=cn=admin,dc=planetexpress,dc=com
+      - CRAFTIVE_LDAP_BIND_PASSWORD=GoodNewsEveryone
+      - CRAFTIVE_LDAP_ATTRS_USERNAME=uid
+      - CRAFTIVE_LDAP_ATTRS_EMAIL=mail
+      - CRAFTIVE_LDAP_ATTRS_FULLNAME=cn
+      - CRAFTIVE_LDAP_ATTRS_PHOTO=jpegPhoto
 
   minio:
     image: "minio/minio:RELEASE.2025-04-03T14-56-28Z"
@@ -89,9 +89,9 @@ services:
     stop_signal: SIGINT
     environment:
       - POSTGRES_INITDB_ARGS=--data-checksums
-      - POSTGRES_DB=penpot
-      - POSTGRES_USER=penpot
-      - POSTGRES_PASSWORD=penpot
+      - POSTGRES_DB=craftive
+      - POSTGRES_USER=craftive
+      - POSTGRES_PASSWORD=craftive
     volumes:
       - ./files/postgresql.conf:/etc/postgresql.conf:z
       - ./files/postgresql_init.sql:/docker-entrypoint-initdb.d/init.sql:z
@@ -99,8 +99,8 @@ services:
 
   redis:
     image: valkey/valkey:8.1
-    hostname: "penpot-devenv-valkey"
-    container_name: "penpot-devenv-valkey"
+    hostname: "craftive-devenv-valkey"
+    container_name: "craftive-devenv-valkey"
     restart: always
     command: valkey-server --save 120 1 --loglevel warning
     volumes:
