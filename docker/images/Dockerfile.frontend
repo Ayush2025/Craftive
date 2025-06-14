@@ -1,12 +1,12 @@
 FROM nginxinc/nginx-unprivileged:1.28.0
-LABEL maintainer="Penpot <docker@penpot.app>"
+LABEL maintainer="Craftive <docker@craftive.app>"
 
 USER root
 
 RUN set -ex; \
-    useradd -U -M -u 1001 -s /bin/false -d /opt/penpot penpot; \
+    useradd -U -M -u 1001 -s /bin/false -d /opt/craftive craftive; \
     mkdir -p /opt/data/assets; \
-    chown -R penpot:penpot /opt/data;
+    chown -R craftive:craftive /opt/data;
 
 ADD ./bundle-frontend/ /var/www/app/
 ADD ./files/config.js /var/www/app/js/config.js
@@ -23,6 +23,6 @@ RUN chown -R 1001:0 /var/cache/nginx; \
     chown -R 1001:0 /var/www; \
     chmod -R g+w /var/www;
 
-USER penpot:penpot
+USER craftive:craftive
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
 CMD ["nginx", "-g", "daemon off;"]
