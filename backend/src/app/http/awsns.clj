@@ -107,7 +107,7 @@
 
 (defn- extract-identity
   [cfg headers]
-  (let [tdata (get headers "x-penpot-data")]
+  (let [tdata (get headers "x-craftive-data")]
     (when-not (str/empty? tdata)
       (let [result (tokens/verify (::setup/props cfg) {:token tdata :iss :profile-identity})]
         (:profile-id result)))))
