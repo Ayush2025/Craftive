@@ -403,7 +403,7 @@
   ;; avoid unexpected blocking of other concurrent operations
   ;; we dispatch that operation to a dedicated executor.
   (let [template (tmp/tempfile-from template
-                                    :prefix "penpot.template."
+                                    :prefix "craftive.template."
                                     :suffix ""
                                     :min-age "30m")
 
