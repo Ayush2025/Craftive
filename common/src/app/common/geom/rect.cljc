@@ -24,7 +24,7 @@
 
 #?(:clj
    (fres/add-handlers!
-    {:name "penpot/geom/rect"
+    {:name "craftive/geom/rect"
      :class Rect
      :wfn fres/write-map-like
      :rfn (comp map->Rect fres/read-map-like)}))
