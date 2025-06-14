@@ -1,5 +1,5 @@
 FROM ubuntu:24.04
-LABEL maintainer="Penpot <docker@penpot.app>"
+LABEL maintainer="Craftive <docker@craftive.app>"
 
 ENV LANG=en_US.UTF-8 \
     LC_ALL=en_US.UTF-8 \
@@ -8,7 +8,7 @@ ENV LANG=en_US.UTF-8 \
     PATH=/opt/node/bin:$PATH
 
 RUN set -ex; \
-    useradd -U -M -u 1001 -s /bin/false -d /opt/penpot penpot; \
+    useradd -U -M -u 1001 -s /bin/false -d /opt/craftive craftive; \
     mkdir -p /etc/resolvconf/resolv.conf.d; \
     echo "nameserver 127.0.0.11" > /etc/resolvconf/resolv.conf.d/tail; \
     apt-get -qq update; \
@@ -91,13 +91,13 @@ RUN set -eux; \
     chown -R root /opt/node; \
     corepack enable; \
     rm -rf /tmp/nodejs.tar.gz; \
-    mkdir -p /opt/penpot; \
-    chown -R penpot:penpot /opt/penpot;
+    mkdir -p /opt/craftive; \
+    chown -R craftive:craftive /opt/craftive;
 
-ADD --chown=penpot:penpot ./bundle-exporter/ /opt/penpot/exporter
+ADD --chown=craftive:craftive ./bundle-exporter/ /opt/craftive/exporter
 
-WORKDIR /opt/penpot/exporter
-USER penpot:penpot
+WORKDIR /opt/craftive/exporter
+USER craftive:craftive
 
 RUN set -ex; \
     yarn install; \
