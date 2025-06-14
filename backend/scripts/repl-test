@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-source /home/penpot/environ
-export PENPOT_FLAGS="$PENPOT_FLAGS disable-backend-worker"
+source /home/craftive/environ
+export CRAFTIVE_FLAGS="$CRAFTIVE_FLAGS disable-backend-worker"
 
 export OPTIONS="
        -A:jmx-remote -A:dev \
@@ -20,8 +20,8 @@ export OPTIONS="
 # Setup HEAP
 export OPTIONS="$OPTIONS -J-Xms320g -J-Xmx320g -J-XX:+AlwaysPreTouch"
 
-export PENPOT_HTTP_SERVER_IO_THREADS=2
-export PENPOT_HTTP_SERVER_WORKER_THREADS=2
+export CRAFTIVE_HTTP_SERVER_IO_THREADS=2
+export CRAFTIVE_HTTP_SERVER_WORKER_THREADS=2
 
 # Increase virtual thread pool size
 # export OPTIONS="$OPTIONS -J-Djdk.virtualThreadScheduler.parallelism=16"
