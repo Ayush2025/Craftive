@@ -1,2 +1,2 @@
-CREATE DATABASE penpot_test;
-CREATE DATABASE penpot_telemetry;
+CREATE DATABASE craftive_test;
+CREATE DATABASE craftive_telemetry;
