@@ -38,10 +38,10 @@
 
 (defn- update-welcome-shape
   [_ file name]
-  (let [text (str "Welcome to Penpot, " name "!")]
+  (let [text (str "Welcome to Craftive, " name "!")]
     (-> file
         (update-in update-path assoc :text text)
-        (update-in [:data :pages-index page-id :objects shape-id] assoc :name "Welcome to Penpot!")
+        (update-in [:data :pages-index page-id :objects shape-id] assoc :name "Welcome to Craftive!")
         (update-in [:data :pages-index page-id :objects shape-id] dissoc :position-data))))
 
 (defn create-welcome-file
@@ -64,4 +64,3 @@
 
     (catch Throwable cause
       (l/error :hint "unexpected error on create welcome file " :cause cause))))
-
