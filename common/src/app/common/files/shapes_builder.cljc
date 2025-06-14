@@ -112,7 +112,7 @@
              (csvg/fix-percents)
              (csvg/extract-defs))
 
-         ;; In penpot groups have the size of their children. To
+         ;; In craftive groups have the size of their children. To
          ;; respect the imported svg size and empty space let's create
          ;; a transparent shape as background to respect the imported
          ;; size
