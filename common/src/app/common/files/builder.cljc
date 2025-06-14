@@ -6,7 +6,7 @@
 
 (ns app.common.files.builder
   "Internal implementation of file builder. Mainly used as base impl
-  for penpot library"
+  for craftive library"
   (:require
    [app.common.data :as d]
    [app.common.data.macros :as dm]
