@@ -74,7 +74,7 @@
                 :cause cause))))))
 
 (sv/defmethod ::export-binfile
-  "Export a penpot file in a binary format."
+  "Export a craftive file in a binary format."
   {::doc/added "1.15"
    ::webhooks/event? true
    ::sm/params schema:export-binfile}
@@ -129,7 +129,7 @@
    [:file ::media/upload]])
 
 (sv/defmethod ::import-binfile
-  "Import a penpot file in a binary format."
+  "Import a craftive file in a binary format."
   {::doc/added "1.15"
    ::webhooks/event? true
    ::sse/stream? true
