@@ -101,7 +101,7 @@
 #?(:cljs
    (defn uuid->short-id
      "Return a shorter string of a safe subset of bytes of an uuid encoded
-     with base62. It is only safe to use with uuid v4 and penpot custom v8"
+     with base62. It is only safe to use with uuid v4 and craftive custom v8"
      [id]
      (impl/shortV8 (dm/str id))))
 
