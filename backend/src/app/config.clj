@@ -34,9 +34,9 @@
        v)})
 
 (def default
-  {:database-uri "postgresql://postgres/penpot"
-   :database-username "penpot"
-   :database-password "penpot"
+  {:database-uri "postgresql://postgres/craftive"
+   :database-username "craftive"
+   :database-password "craftive"
 
    :default-blob-version 4
 
@@ -56,8 +56,8 @@
    :objects-storage-fs-directory "assets"
 
    :assets-path "/internal/assets/"
-   :smtp-default-reply-to "Penpot <no-reply@example.com>"
-   :smtp-default-from "Penpot <no-reply@example.com>"
+   :smtp-default-reply-to "Craftive <no-reply@example.com>"
+   :smtp-default-from "Craftive <no-reply@example.com>"
 
    :profile-complaint-max-age (dt/duration {:days 7})
    :profile-complaint-threshold 2
@@ -65,7 +65,7 @@
    :profile-bounce-max-age (dt/duration {:days 7})
    :profile-bounce-threshold 10
 
-   :telemetry-uri "https://telemetry.penpot.app/"
+   :telemetry-uri "https://telemetry.craftive.app/"
 
    :media-max-file-size (* 1024 1024 30) ; 30MiB
 
@@ -264,7 +264,7 @@
 (defn read-config
   "Reads the configuration from enviroment variables and decodes all
   known values."
-  [& {:keys [prefix default] :or {prefix "penpot"}}]
+  [& {:keys [prefix default] :or {prefix "craftive"}}]
   (->> (read-env prefix)
        (merge default)
        (decode-config)))
